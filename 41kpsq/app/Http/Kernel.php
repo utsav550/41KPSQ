@@ -44,6 +44,12 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'admin_auth' => [
+            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            
+            \App\Http\Middleware\AdminAuth::class,
+        ],
     ];
 
     /**
