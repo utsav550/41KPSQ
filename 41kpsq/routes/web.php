@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\TicketController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,19 @@ Route::group(['middleware'=>'admin_auth'],function(){
     Route::get('admin/events/add_event/{id}',[EventsController::class,'add_event'])->name('event.manage');
     Route::get('admin/events/delete/{id}',[EventsController::class,'delete']);
 
+//************************************************************************** */
 
+
+
+Route::get('admin/ticket',[TicketController::class,'index']);
+    Route::get('admin/ticket/manage_ticket',[TicketController::class,'manage_ticket']);
+    Route::get('admin/ticket/manage_ticket/{id}',[TicketController::class,'manage_ticket']);
+    Route::post('admin/ticket/manage_ticket_process',[TicketController::class,'manage_ticket_process'])->name('ticket.manage_ticket_process');
+    Route::get('admin/ticket/delete/{id}',[TicketController::class,'delete']);
+    Route::get('admin/ticket/status/{status}/{id}',[TicketController::class,'status']);
+
+
+/************************************************************************************************ */
     Route::get('admin/logout', function () {
         session()->forget('ADMIN_LOGIN');
         session()->forget('ADMIN_ID');
