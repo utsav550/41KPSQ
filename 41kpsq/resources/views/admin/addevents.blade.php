@@ -54,8 +54,23 @@
 
     </div>
     <hr>
-    <button type="submit" class="btn btn-primary" name="addevent">Confirm Edit</button>
-    <input type="hidden" name="id" value="{{$id}}"/>
+    
+    <?php
+
+
+    if (Request::is('admin/events/add_event/*')){
+      echo '<button type="submit" class="btn btn-primary" name="addevent">Confirm Edit </button>';
+    }
+    else{
+      echo'
+      <button type="submit" class="btn btn-primary" name="addevent">Confirm</button>
+    
+      ';
+    }
+   
+?>
+ <input type="hidden" name="id" value="{{$id}}"/>
+ <input type="hidden" name="sold" value="{{$sold}}"/>
   </form>
 
 @endsection

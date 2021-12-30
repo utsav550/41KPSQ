@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Events;
 use App\Models\Ticket;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -14,7 +15,12 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('admin.ticket');
+        $result['data']=Ticket::all();
+        
+
+
+        
+        return view('admin.ticket',$result);
     }
 
     /**
@@ -22,9 +28,9 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function manage_ticket()
     {
-        //
+        
     }
 
     /**
