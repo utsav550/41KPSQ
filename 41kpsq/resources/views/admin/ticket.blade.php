@@ -74,7 +74,7 @@
                                 <div class="row">
                                     <div class="col" style="margin:10px; color:black;">Place : {{$list->place}}</div>
                                 </div>
-                                <a href="#" class="btn btn-primary">{{$list->status}}</a>
+                                <a href="{{url('admin/ticket/status')}}/{{$list->id}}" class="btn btn-primary">{{$list->status}}</a>
                                 </div>
                             </div>
                             </div>

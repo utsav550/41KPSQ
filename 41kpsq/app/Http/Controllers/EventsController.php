@@ -42,6 +42,7 @@ class EventsController extends Controller
             $result['time'] = '';
             $result['desc'] = '';
             $result['id'] = '';
+            $result1['sold'] = '';
         }
         return view('admin.addevents', $result, $result1);
     }

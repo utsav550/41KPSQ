@@ -39,7 +39,7 @@ Route::get('admin/ticket',[TicketController::class,'index']);
     Route::get('admin/ticket/manage_ticket/{id}',[TicketController::class,'manage_ticket']);
     Route::post('admin/ticket/manage_ticket_process',[TicketController::class,'manage_ticket_process'])->name('ticket.manage_ticket_process');
     Route::get('admin/ticket/delete/{id}',[TicketController::class,'delete']);
-    Route::get('admin/ticket/status/{status}/{id}',[TicketController::class,'status']);
+    Route::get('admin/ticket/status/{id}',[TicketController::class,'status']);
 
 
 /************************************************************************************************ */
