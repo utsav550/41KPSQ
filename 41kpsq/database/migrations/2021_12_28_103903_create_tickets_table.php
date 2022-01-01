@@ -15,6 +15,11 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->string('eventName');
+            $table->date('date');
+            $table->string('place');
+            $table->time('time');
+            $table->integer('sold');
             $table->integer('event_id');
             $table->string('status');
             $table->integer('totaltickets');

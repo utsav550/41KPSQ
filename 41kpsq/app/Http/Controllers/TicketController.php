@@ -42,10 +42,10 @@ class TicketController extends Controller
         $result1['totaltickets'] = $arr1['0']->totaltickets;
         $result1['sold'] = $arr1['0']->sold;
         $result1['price'] = $arr1['0']->price;
-        echo $result1['status'];
+       
         
         if($result1['status'] == "Availble"){
-            $model = Events::find($id);
+            $model = Ticket::find($id);
             $model->eventName = $result1['eventName'];
             $model->status = "Disabled";
             $model->date = $result1['date'];;
@@ -57,8 +57,17 @@ class TicketController extends Controller
             $model->save();
         }
         else{
-        $model->status = "Availble";
-        $model->save();
+            $model = Ticket::find($id);
+            $model->eventName = $result1['eventName'];
+            $model->status = "Availble";
+            $model->date = $result1['date'];;
+            $model->place = $result1['place'];;
+            $model->time = $result1['time'];;
+            $model->totaltickets = $result1['totaltickets'];
+            $model->sold = $result1['sold'];
+            $model->price = $result1['price'];
+            $model->save();
+       
         }
         $result['data']=Ticket::all();
         return view('admin.ticket',$result);
