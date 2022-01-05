@@ -41,73 +41,79 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="fname" id="exampleFirstName"
-                                            placeholder="First Name">
+                                            placeholder="First Name" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" name="lname" id="exampleLastName"
-                                            placeholder="Last Name">
+                                            placeholder="Last Name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="date" class="form-control form-control-user" name="date" id="exampleFirstName"
-                                            placeholder="dob">
+                                        <input type="date" class="form-control form-control-user" name="dob" id="exampleFirstName"
+                                            placeholder="dob" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" name="mobile" id="exampleLastName"
-                                            placeholder="mobile">
+                                            placeholder="mobile" required>
+                                            <span style="color: RED" id="mobile_error" class="field_error"></span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="village" id="exampleFirstName"
-                                            placeholder="village">
+                                            placeholder="village" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" name="gender" id="exampleLastName"
-                                            placeholder="gender">
+                                            placeholder="gender" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                        placeholder="Email Address" required>
+                                        <span style="color: RED" id="email_error" class="field_error"></span>
                                 </div>
                                 <hr>
                                 <h4> Additional info </h4>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" name="address" id="exampleInputEmail"
-                                        placeholder="Address">
+                                        placeholder="Address" required>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="suburb" id="exampleFirstName"
-                                            placeholder="Suburb">
+                                            placeholder="Suburb" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" name="postcode" id="exampleLastName"
-                                            placeholder="Post Code">
+                                            placeholder="Post Code" required>
+                                            <span style="color: RED" id="postcode_error" class="field_error"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" name="visa" id="exampleInputEmail"
-                                        placeholder="visa">
+                                        placeholder="visa" required>
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" name="agree" for="exampleCheck1">i agree to share my information with other users.</label>
+                                    <input type="checkbox" class="form-check-input" name="agree" id="exampleCheck1" required>
+                                    <label class="form-check-label" name="agreed" for="exampleCheck1">i agree to share my information with other users.</label>
                                   </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" name="password" placeholder="Password">
+                                            id="exampleInputPassword" name="password" placeholder="Password" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" name="repassword" placeholder="Repeat Password">
+                                            id="exampleRepeatPassword" name="password_confirmation" placeholder="Repeat Password" required>
                                     </div>
+                                    <span style="color: RED" id="password_error" class="field_error"></span>
                                 </div>
                                 <button type="submit" id="btnRegi" class="btn btn-primary btn-user btn-block">
-                                    Register Account
+                                    Register Account</button>
+                                    <div class="text-center" style="color: green; margin-top:10px" id="thanks">
+                                    </div>
                                 </a>
                                 <hr>
                                 @csrf
