@@ -7,7 +7,7 @@
     <meta name="keywords" content="Manup, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Manup | Template</title>
+    <title>41 KPSQ | HOME</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap"
@@ -73,10 +73,18 @@
                         <li><a href="./schedule.html">Events</a></li>
                         
                         <li><a href="./contact.html">Contacts</a></li>
+                        <li><a href="{{url('/register')}}">Register</a></li>
+                        @if(session()->has('FRONT_USER_NAME')!=null)
+                        <li><a href="{{url('/logoutuser')}}">logout</a></li>
+                        @else 
+                           
+                        <li><a href="{{url('/loginuser')}}">Login</a></li>
+                        @endif
+                        
                     </ul>
                 </nav>
-                <a href="{{url('/register')}}" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Log-in /Sign Up</a>
-            </div>
+        <!--        <a href="{{url('/register')}}" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Log-in /Sign Up</a>
+        --></div>
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>

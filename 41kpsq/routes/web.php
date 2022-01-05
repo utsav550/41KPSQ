@@ -23,12 +23,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/register',[FrontController::class,'registration']);
+Route::get('/loginuser',[FrontController::class,'login']);
 Route::post('registration_proccess',[FrontController::class,'registration_proccess'])->name('registration.registration_proccess');
+Route::post('login_process',[FrontController::class,'login_process'])->name('login.login_process');
 Route::get('admin',[AdminController::class,'index']);
 Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 
 
-
+Route::get('/logoutuser', function () {
+    session()->forget('FRONT_USER_LOGIN');
+    session()->forget('FRONT_USER_ID');
+    session()->forget('FRONT_USER_NAME');
+    return redirect('/');   
+   return view('welcome');
+});
+/************************************************************************************************ */
 Route::group(['middleware'=>'admin_auth'],function(){
     Route::get('admin/dashboard',[AdminController::class,'dashboard']);
     Route::post('admin/events/add',[EventsController::class,'add'])->name('event.add');

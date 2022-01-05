@@ -20,3 +20,24 @@ jQuery('#frmRegi').submit(function(e){
         }
     });
 });
+
+jQuery('#frmlogin').submit(function(e){
+    jQuery('#login_msg').html("");
+    e.preventDefault();
+    jQuery.ajax({
+      url:'/login_process',
+      data:jQuery('#frmlogin').serialize(),
+      type:'post',
+      success:function(result){
+        if(result.status=="error"){
+          jQuery('#login_msg').html(result.msg);
+        }
+        
+        if(result.status=="success"){
+         window.location.href='/'
+          //jQuery('#frmLogin')[0].reset();
+          //jQuery('#thank_you_msg').html(result.msg);
+        }
+      }
+    });
+  });

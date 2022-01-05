@@ -34,6 +34,11 @@ class FrontController extends Controller
         $result = [];
         return view('/register', $result);
     }
+    public function login(Request $request)
+    {
+        $result = [];
+        return view('/loginuser', $result);
+    }
 
     public function registration_proccess(Request $request)
     {
@@ -86,4 +91,32 @@ class FrontController extends Controller
         }
     }
 }
+
+
+public function login_process(Request $request)
+    {
+
+        $result=DB::table('members')  
+            ->where(['email'=>$request->email_login])
+            ->get(); 
+        
+        if(isset($result[0])){
+            $db_pwd=Crypt::decrypt($result[0]->password);
+            if($db_pwd==$request->password_login){
+                $request->session()->put('FRONT_USER_LOGIN',true);
+                $request->session()->put('FRONT_USER_ID',$result[0]->id);
+                $request->session()->put('FRONT_USER_NAME',$result[0]->fname);
+                $status="success";
+                $msg="";
+            }else{
+                $status="error";
+                $msg="Please enter valid password";
+            }
+        }else{
+            $status="error";
+            $msg="Please enter valid email id";
+        }
+       return response()->json(['status'=>$status,'msg'=>$msg]); 
+       //$request->password
+    }
 }
