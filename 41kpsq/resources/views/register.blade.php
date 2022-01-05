@@ -40,59 +40,68 @@
                                 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="fname" id="exampleFirstName"
+                                        <input type="text" class="form-control" name="fname" id="exampleFirstName"
                                             placeholder="First Name" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="lname" id="exampleLastName"
+                                        <input type="text" class="form-control" name="lname" id="exampleLastName"
                                             placeholder="Last Name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="date" class="form-control form-control-user" name="dob" id="exampleFirstName"
+                                        <input type="date" class="form-control " name="dob" id="exampleFirstName"
                                             placeholder="dob" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="mobile" id="exampleLastName"
+                                        <input type="text" class="form-control " name="mobile" id="exampleLastName"
                                             placeholder="mobile" required>
                                             <span style="color: RED" id="mobile_error" class="field_error"></span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="village" id="exampleFirstName"
-                                            placeholder="village" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="gender" id="exampleLastName"
-                                            placeholder="gender" required>
-                                    </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <select class="form-control" aria-label="" name="village" required>
+                                        <option selected disabled value="">Select Village</option>
+                                        @foreach ($data as $list)       
+                                        <option value="{{$list->village}}">{{$list->village}}</option>
+                                        @endforeach
+                                      </select>
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <select class="form-control" aria-label="" name="gender" required>
+                                       
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="other">Other</option>
+                                      
+                                      </select>
+                                </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail"
+                                    <input type="email" class="form-control" name="email" id="exampleInputEmail"
                                         placeholder="Email Address" required>
                                         <span style="color: RED" id="email_error" class="field_error"></span>
                                 </div>
                                 <hr>
                                 <h4> Additional info </h4>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="address" id="exampleInputEmail"
+                                    <input type="text" class="form-control" name="address" id="exampleInputEmail"
                                         placeholder="Address" required>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="suburb" id="exampleFirstName"
+                                        <input type="text" class="form-control" name="suburb" id="exampleFirstName"
                                             placeholder="Suburb" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="postcode" id="exampleLastName"
+                                        <input type="text" class="form-control" name="postcode" id="exampleLastName"
                                             placeholder="Post Code" required>
                                             <span style="color: RED" id="postcode_error" class="field_error"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="visa" id="exampleInputEmail"
+                                    <input type="text" class="form-control " name="visa" id="exampleInputEmail"
                                         placeholder="visa" required>
                                 </div>
                                 <div class="form-group form-check">
@@ -101,11 +110,11 @@
                                   </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input type="password" class="form-control "
                                             id="exampleInputPassword" name="password" placeholder="Password" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input type="password" class="form-control "
                                             id="exampleRepeatPassword" name="password_confirmation" placeholder="Repeat Password" required>
                                     </div>
                                     <span style="color: RED" id="password_error" class="field_error"></span>

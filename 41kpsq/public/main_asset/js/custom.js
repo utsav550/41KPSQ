@@ -34,7 +34,7 @@ jQuery('#frmlogin').submit(function(e){
         }
         
         if(result.status=="success"){
-         window.location.href='/'
+         window.location.href='/member/userDash'
           //jQuery('#frmLogin')[0].reset();
           //jQuery('#thank_you_msg').html(result.msg);
         }

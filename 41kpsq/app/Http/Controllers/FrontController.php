@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\villages;
 use App\Models\front;
 use App\Http\Controllers\Controller;
 
@@ -21,7 +21,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        //
+        return view('/member/userDash');
     }
 
     /**
@@ -31,7 +31,7 @@ class FrontController extends Controller
      */
     public function registration(Request $request)
     {
-        $result = [];
+        $result['data']=villages::all();
         return view('/register', $result);
     }
     public function login(Request $request)
@@ -103,6 +103,14 @@ public function login_process(Request $request)
         if(isset($result[0])){
             $db_pwd=Crypt::decrypt($result[0]->password);
             if($db_pwd==$request->password_login){
+                
+                    if($request->rememberme==null){
+                        setcookie('email_login',$request->email_login,100);
+                        setcookie('password_login',$request->password_login,100);
+                    }else{
+                        setcookie('email_login',$request->email_login,time()+60*60*24*365);
+                        setcookie('password_login',$request->password_login,time()+60*60*24*365);
+                    }
                 $request->session()->put('FRONT_USER_LOGIN',true);
                 $request->session()->put('FRONT_USER_ID',$result[0]->id);
                 $request->session()->put('FRONT_USER_NAME',$result[0]->fname);

@@ -21,6 +21,20 @@
     <link href="{{ asset('admin_asset/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
+@php
+    
+if(isset($_COOKIE['email_login']) && isset($_COOKIE['password_login'])){
+    $user = $_COOKIE['email_login'];
+    $pass = $_COOKIE['password_login'];
+    $remember = "checked='checked'";
+}
+else{
+    $user ="";
+    $pass ="";
+    $remember = "";
+}
+
+@endphp
 
 <body class="bg-gradient-primary">
 
@@ -46,19 +60,19 @@
                                     <form class="user" id="frmlogin">
                                        
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="email" class="form-control"
                                                 id="exampleInputEmail" name="email_login" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." required>
+                                                placeholder="Enter Email Address..." value="{{$user}}" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" name="password_login" placeholder="Password"
+                                            <input type="password" class="form-control"
+                                                id="exampleInputPassword" name="password_login" value="{{$pass}}"placeholder="Password"
                                                 required>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
+                                                <input type="checkbox" class="custom-control-input" name="rememberme"{{$remember}} id="customCheck">
+                                                <label class="custom-control-label"  for="customCheck">Remember
                                                     Me</label>
                                             </div>
                                         </div>

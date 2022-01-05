@@ -22,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/member/userDash', function () {
+    return view('userDash');
+});
+
+Route::get('/member/userDash',[FrontController::class,'index']);
+
 Route::get('/register',[FrontController::class,'registration']);
 Route::get('/loginuser',[FrontController::class,'login']);
 Route::post('registration_proccess',[FrontController::class,'registration_proccess'])->name('registration.registration_proccess');
