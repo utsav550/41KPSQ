@@ -91,6 +91,11 @@ function index(Request $request)
                     <i class="fas fa-ticket-alt"></i>
                     <span>Tickets</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url('admin/gallery')}}">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Gallery</span></a>
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">

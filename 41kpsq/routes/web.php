@@ -2,6 +2,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\VillagesController;
 use App\Models\Admin;
@@ -73,8 +74,10 @@ Route::get('admin/ticket',[TicketController::class,'index']);
 
 //************************************************************************** */
 
+Route::get('admin/gallery',[GalleryController::class,'index']);
 
 
+//************************************************************************** */
 Route::get('admin/village',[VillagesController::class,'index']);
 Route::post('admin/village/addvillage',[VillagesController::class,'addv'])->name('addvillage.addv');
 Route::get('admin/village/add',[VillagesController::class,'add'])->name('village.add');
