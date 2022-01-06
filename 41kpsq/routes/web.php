@@ -44,6 +44,8 @@ Route::get('/logoutuser', function () {
    return view('welcome');
 });
 /************************************************************************************************ */
+Route::get('/verification/{id}',[FrontController::class,'email_verification']);
+
 Route::group(['middleware'=>'admin_auth'],function(){
     Route::get('admin/dashboard',[AdminController::class,'dashboard']);
     Route::post('admin/events/add',[EventsController::class,'add'])->name('event.add');
