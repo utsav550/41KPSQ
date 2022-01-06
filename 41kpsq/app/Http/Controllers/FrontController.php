@@ -28,7 +28,7 @@ class FrontController extends Controller
         if(isset($result[0])){
             $result=DB::table('members')  
             ->where(['id'=>$result[0]->id])
-            ->update(['status'=>"verified"]);
+            ->update(['status'=>"verified"],['rand_code'=>""]);
             
         return view('loginuser');
         }else{
@@ -50,6 +50,11 @@ class FrontController extends Controller
     {
         $result['data']=villages::all();
         return view('/register', $result);
+    }
+    public function forgot(Request $request)
+    {
+        $result=[];
+        return view('/forgotpassword', $result);
     }
     public function login(Request $request)
     {
@@ -163,4 +168,59 @@ public function login_process(Request $request)
        //$request->password
     }
     
+    public function forgot_password(Request $request)
+    {
+        
+        $result=DB::table('members')  
+            ->where(['email'=>$request->str_forgot_email])
+            ->get(); 
+            $rand=rand(111111,999999);
+        if(isset($result[0])){
+
+            DB::table('members')  
+                ->where(['email'=>$request->str_forgot_email])
+                ->update(['rand_code'=>$rand]);
+
+                $data=['rand_code'=>$rand];
+                $user['to']=$request->str_forgot_email;
+                Mail::send('forgot_password',$data,function($messages) use ($user){
+                $messages->to($user['to']);
+                $messages->subject("Forgot Password");
+            });
+            return response()->json(['status'=>'success','msg'=>'Please check your email for password']); 
+        }else{
+            return response()->json(['status'=>'error','msg'=>'Email id not registered']); 
+        }
+    }
+
+
+    public function forgot_password_change(Request $request,$id)
+    {
+        $result=DB::table('members')  
+            ->where(['rand_code'=>$id])
+            
+            ->get(); 
+
+        if(isset($result[0])){
+            $request->session()->put('FORGOT_PASSWORD_USER_ID',$result[0]->id);
+        
+            return view('forgot_password_change');
+        }else{
+            return redirect('/');
+        }
+    }
+
+    public function forgot_password_change_process(Request $request)
+    {
+        DB::table('members')  
+            ->where(['id'=>$request->session()->get('FORGOT_PASSWORD_USER_ID')])
+            ->update(
+                [
+                    'password'=>Crypt::encrypt($request->password),
+                    'rand_code'=>'0'
+                ]
+                
+            ); 
+            return view('/loginuser');     
+    }
 }

@@ -29,10 +29,15 @@ Route::get('/member/userDash', function () {
 Route::get('/member/userDash',[FrontController::class,'index']);
 
 Route::get('/register',[FrontController::class,'registration']);
+Route::get('/forgotpassword',[FrontController::class,'forgot']);
 Route::get('/loginuser',[FrontController::class,'login']);
 Route::post('registration_proccess',[FrontController::class,'registration_proccess'])->name('registration.registration_proccess');
 Route::post('login_process',[FrontController::class,'login_process'])->name('login.login_process');
 Route::get('admin',[AdminController::class,'index']);
+Route::post('forgotpassword',[FrontController::class,'forgot_password']);
+Route::get('/forgot_password_change/{id}',[FrontController::class,'forgot_password_change']);
+Route::post('forgot_password_change_process',[FrontController::class,'forgot_password_change_process']);
+
 Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 
 
