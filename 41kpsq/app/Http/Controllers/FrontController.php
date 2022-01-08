@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\villages;
 use App\Models\front;
 use App\Http\Controllers\Controller;
-
+use App\Models\Events;
+use App\Models\gallery;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -34,6 +35,14 @@ class FrontController extends Controller
         }else{
             return redirect('/');
         }
+    }
+    public function indexdata()
+    {
+        $result2['img'] = gallery::all();
+        
+        $result['data'] = Events::all();
+        return view('welcome', $result,$result2);
+       
     }
 
     public function index()

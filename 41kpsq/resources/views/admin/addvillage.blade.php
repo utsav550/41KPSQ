@@ -10,7 +10,7 @@
             << Back</span>
     </a>
     <hr>
-    <form action="{{ route('addvillage.addv') }}" method="POST">
+    <form action="{{route('addvillage.addv') }}" method="POST">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">

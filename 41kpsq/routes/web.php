@@ -19,10 +19,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',[FrontController::class,'indexdata']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/member/userDash', function () {
     return view('userDash');
 });
@@ -75,7 +73,9 @@ Route::get('admin/ticket',[TicketController::class,'index']);
 //************************************************************************** */
 
 Route::get('admin/gallery',[GalleryController::class,'index']);
-
+Route::post('admin/gallery_load',[FrontController::class,'gallery_load'])->name('gallery.gallery_load');
+Route::get('admin/gallery/delete/{id}',[GalleryController::class,'delete']);
+Route::post('admin/gallery/add',[GalleryController::class,'add'])->name('gallery.add');
 
 //************************************************************************** */
 Route::get('admin/village',[VillagesController::class,'index']);
