@@ -102,4 +102,5 @@ Route::get('admin/village/add',[VillagesController::class,'add'])->name('village
     
     Route::get('member/event',[MembersController::class,'eventlist']);
     Route::get('member/ticket',[MembersController::class,'ticket']);
+    Route::get('member/account',[MembersController::class,'account']);
 });

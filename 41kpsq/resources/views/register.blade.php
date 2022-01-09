@@ -64,7 +64,7 @@
                                     <select class="form-control" aria-label="" name="village" required>
                                         <option selected disabled value="">Select Village</option>
                                         @foreach ($data as $list)       
-                                        <option value="{{$list->village}}">{{$list->village}}</option>
+                                        <option value="{{$list->id}}">{{$list->village}}</option>
                                         @endforeach
                                       </select>
                                 </div>

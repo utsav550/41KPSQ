@@ -25,6 +25,14 @@ class MembersController extends Controller
         return view('member/ticket', $result);
     }
 
+    public function account(Request $request)
+    {
+        $result['data']=Ticket::all();
+        $sort = $result['data'];
+        $result['data'] = $sort->sortByDesc('date');
+        return view('member/account', $result);
+    }
+
 
 
 }
