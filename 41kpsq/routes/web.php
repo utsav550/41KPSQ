@@ -7,6 +7,7 @@ use App\Http\Controllers\MembersController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\VillagesController;
 use App\Models\Admin;
+use App\Models\Members;
 use App\Models\villages;
 use Illuminate\Support\Facades\Route;
 
@@ -99,8 +100,8 @@ Route::get('admin/village/add',[VillagesController::class,'add'])->name('village
     /************************************************************************************************ */
     
     Route::get('regmember',[FrontController::class,'registration']);
-    
+    Route::post('member/account/add',[MembersController::class,'add'])->name('member.add');
     Route::get('member/event',[MembersController::class,'eventlist']);
     Route::get('member/ticket',[MembersController::class,'ticket']);
-    Route::get('member/account',[MembersController::class,'account']);
+    Route::get('member/account/{id}',[MembersController::class,'account']);
 });
