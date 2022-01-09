@@ -11,8 +11,11 @@ class GalleryController extends Controller
     public function index()
     {
         $result2['img'] = gallery::all();
-        
+        $sort = $result2['img'];
+        $result2['img'] = $sort->sortByDesc('date');
         $result['data'] = Events::all();
+        $sort = $result['data'];
+        $result['data'] = $sort->sortByDesc('date');
         return view('admin/gallery', $result,$result2);
     }
 

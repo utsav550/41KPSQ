@@ -12,8 +12,10 @@ class EventsController extends Controller
 
     public function index()
     {
+       
         $result['data'] = Events::all();
-
+        $sort = $result['data'];
+        $result['data'] = $sort->sortBy('date');
 
         return view('admin.events', $result);
     }

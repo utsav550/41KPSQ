@@ -3,6 +3,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\MembersController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\VillagesController;
 use App\Models\Admin;
@@ -98,4 +99,7 @@ Route::get('admin/village/add',[VillagesController::class,'add'])->name('village
     /************************************************************************************************ */
     
     Route::get('regmember',[FrontController::class,'registration']);
+    
+    Route::get('member/event',[MembersController::class,'eventlist']);
+    Route::get('member/ticket',[MembersController::class,'ticket']);
 });

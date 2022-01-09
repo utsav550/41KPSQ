@@ -16,7 +16,7 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->session()->has('ADMIN_LOGIN')){
+        if($request->session()->has('ADMIN_LOGIN') || $request->session()->has('FRONT_USER_NAME')){
             
     
            }

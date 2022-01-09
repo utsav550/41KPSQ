@@ -1,85 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Events;
 use App\Models\Members;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class MembersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+   
+    public function eventlist(Request $request)
     {
-        //
+        $result['data']=Ticket::all();
+        $sort = $result['data'];
+        $result['data'] = $sort->sortByDesc('date');
+        return view('member/event', $result);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function ticket(Request $request)
     {
-        //
+        $result['data']=Ticket::all();
+        $sort = $result['data'];
+        $result['data'] = $sort->sortByDesc('date');
+        return view('member/ticket', $result);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Members  $members
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Members $members)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Members  $members
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Members $members)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Members  $members
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Members $members)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Members  $members
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Members $members)
-    {
-        //
-    }
 }

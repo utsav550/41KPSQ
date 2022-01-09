@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Crypt;
+use Illuminate\Console\Scheduling\Event;
 use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt as FacadesCrypt;
@@ -39,8 +40,11 @@ class FrontController extends Controller
     public function indexdata()
     {
         $result2['img'] = gallery::all();
-        
+        $sort = $result2['img'];
+        $result2['img'] = $sort->sortByDesc('date');
         $result['data'] = Events::all();
+        $sort = $result['data'];
+        $result['data'] = $sort->sortByDesc('date');
         return view('welcome', $result,$result2);
        
     }
@@ -60,6 +64,9 @@ class FrontController extends Controller
         $result['data']=villages::all();
         return view('/register', $result);
     }
+
+ 
+
     public function forgot(Request $request)
     {
         $result=[];

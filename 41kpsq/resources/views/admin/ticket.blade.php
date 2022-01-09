@@ -51,7 +51,7 @@
                             @foreach ($data as $list)
                             
 
-                            <div class="col-sm-4" style="margin: 20px; ">
+                            <div class="col-sm-4" style="margin:20px; margin-left:5% ">
                             <div class="card" style="border: 1px solid black;">
                                 <div class="card-img-top" style="height: 100px;  background-color:black">
                                     <h1 style="color: white; text-align:center; margin-top:25px">{{$list->eventName}} </h1>

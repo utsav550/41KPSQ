@@ -17,7 +17,8 @@ class TicketController extends Controller
     public function index()
     {
         $result['data']=Ticket::all();
-        
+        $sort = $result['data'];
+        $result['data'] = $sort->sortByDesc('date');
 
 
         
