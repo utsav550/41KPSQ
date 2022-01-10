@@ -81,8 +81,8 @@ class FrontController extends Controller
     public function registration_proccess(Request $request)
     {
         $valid=Validator::make($request->all(),[
-        "email"=>'email|unique:members,email',
-        "mobile"=>'numeric|unique:members,mobile',
+        "email"=>'required|email|unique:members,email',
+        "mobile"=>'required|numeric|unique:members,mobile',
         "postcode"=>'numeric',
         "password"=>'confirmed:repassword'
         ]);

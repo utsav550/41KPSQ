@@ -101,3 +101,27 @@ jQuery('#frmgallery').submit(function(e){
       }
   });
 });
+
+jQuery('#link').keyup(function(e){
+
+  e.preventDefault();
+  jQuery('.field_error').html('');
+  jQuery.ajax({
+      url:'/searching',
+      data:jQuery('#id').serialize(),
+      type:'post',
+      success:function(result){
+          
+          if(result.status=="error"){
+              jQuery.each(result.error,function(key,val){
+                  jQuery('#'+key+'_error').html(val[0]);
+              });
+          }
+          if(result.status=="success"){
+            jQuery.each(result.error,function(key,val){
+              jQuery('#result').html(val[0]);
+          });
+            }
+      }
+  });
+});

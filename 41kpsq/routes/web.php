@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MembersController;
@@ -104,4 +105,12 @@ Route::get('admin/village/add',[VillagesController::class,'add'])->name('village
     Route::get('member/event',[MembersController::class,'eventlist']);
     Route::get('member/ticket',[MembersController::class,'ticket']);
     Route::get('member/account/{id}',[MembersController::class,'account']);
+
+     /************************************************************************************************ */
+
+     Route::get('member/family/{id}',[FamilyController::class,'index']);
+     Route::post('member/family/add/{id}',[FamilyController::class,'add']);
+     Route::get('member/family/delete/{id}',[FamilyController::class,'delete']);
+     Route::post('member/link',[FamilyController::class,'link']);
+   
 });

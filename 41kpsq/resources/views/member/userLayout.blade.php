@@ -67,6 +67,12 @@
                     <span>Tickets</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('member/family')}}/{{session()->get('FRONT_USER_ID')}}">
+                    <i class="fas fa-users"></i>
+                    <span>Family</span></a>
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
