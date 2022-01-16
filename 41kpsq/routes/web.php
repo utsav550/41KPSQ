@@ -111,6 +111,9 @@ Route::get('admin/village/add',[VillagesController::class,'add'])->name('village
      Route::get('member/family/{id}',[FamilyController::class,'index']);
      Route::post('member/family/add/{id}',[FamilyController::class,'add']);
      Route::get('member/family/delete/{id}',[FamilyController::class,'delete']);
-     Route::post('member/link',[FamilyController::class,'link']);
+     Route::post('member/family/link/{id}',[FamilyController::class,'link']);
+     Route::get('member/family/req/{id}',[FamilyController::class,'req']);
+     Route::get('member/family/acc/{id}',[FamilyController::class,'acc']);
+     Route::get('member/family/remove/{id}',[FamilyController::class,'remove']);
    
 });

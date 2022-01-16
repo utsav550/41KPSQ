@@ -6,6 +6,7 @@ use App\Models\front;
 use App\Http\Controllers\Controller;
 use App\Models\Events;
 use App\Models\gallery;
+use App\Models\Members;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -51,7 +52,19 @@ class FrontController extends Controller
 
     public function index()
     {
-        return view('/member/userDash');
+        $id = session()->get('FRONT_USER_ID');
+        $arr = Members::where(['id' => $id])->get();
+        $arr2['data']=[];
+        if($arr['0']->family_status == "requested"){
+           $head =  $arr['0']->head_id;
+          
+           $arr2['data'] = Members::where(['id' => $head])->get();
+          
+          
+        }
+        
+        return view('/member/userDash',$arr,$arr2);
+
     }
 
     /**
