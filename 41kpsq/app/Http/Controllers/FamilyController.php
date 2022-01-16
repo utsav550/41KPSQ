@@ -34,7 +34,13 @@ class FamilyController extends Controller
         else{
          $fatchfamily = $arr['0']->head_id;
         $result2['data2'] = Members::where(['head_id' => $fatchfamily])->get();
-        if (empty($arr['0']->id)) {
+        $result3= Members::where(['id' => $id])->get();
+                if($result3['0']->family_status == "requested"){
+                    $head =  $arr['0']->head_id;
+                    $arr2['data'] = Members::where(['id' => $head])->get();
+                    $result2['data2'] =[];
+                    $result = [];
+                }elseif(empty($arr['0']->id)) {
            
            
         } else {
@@ -131,16 +137,27 @@ class FamilyController extends Controller
                 ->update(['member' . $k . '' => null]);
             $request->session()->flash('alert', 'Member  deleted!');
         }
+        $familycheck = 0;
+        $model5 = Members::where('head_id',$idv)->get();
+        if(count($model5)==0){
+            $model = family::where('head_id',$idv)
+            ->delete();
+        }
+        
         return redirect('member/family/' . $idv . '');
     }
 
     public function link(Request $request, $id = '')
     {
         $req = "requested";
+        $cfm = family::where('head_id',$request->post('memberid'))->get();
+        $cfmcount = count($cfm);
         $arr = Members::where(['id' => $request->post('memberid')])->get();
         if (empty($arr['0'])) {
             $request->session()->flash('alert', 'Member not Found with ID!');
         } elseif ($arr['0']->head_id != NULL) {
+            $request->session()->flash('alert', 'Someone already added this persone to family.!');
+        }elseif($cfmcount!=0){
             $request->session()->flash('alert', 'Someone already added this persone to family.!');
         } else {
             $arr2 = family::where(['head_id' => $id])->get();
@@ -271,6 +288,7 @@ class FamilyController extends Controller
 
     public function remove(Request $request, $id)
     {
+        $idv = session()->get('FRONT_USER_ID');
         $arr = family::where(['head_id' => $id])->get();
         $model2 = Members::where('id', $id)
             ->update(['relation' => null,
@@ -283,7 +301,7 @@ class FamilyController extends Controller
                 ->update(['member' . $k . '' => null]);
             $request->session()->flash('alert', 'request  deleted!');
         }
-        return redirect('member/family/'.$id.'');
+        return redirect('member/family/'.$idv.'');
     }
 
     public function acc(Request $request, $id)

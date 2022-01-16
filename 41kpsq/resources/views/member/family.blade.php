@@ -26,7 +26,7 @@ if(session('alert')){
     <?php 
 }?>
 
-    @if (count($data2) <= 1)
+    @if (count($data2) < 1)
         
             <p>
                 <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
