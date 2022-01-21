@@ -51,7 +51,12 @@ h6 {
 	font-weight: 400;
 	font-family: "Work Sans", sans-serif;
 }
-
+#grad1{
+	background-image: linear-gradient(to right, #ee8425, #f9488b);
+}
+#grad2{
+	background-image: linear-gradient(to right, #f9488b, #ee8425,);
+}
 h1 {
 	font-size: 70px;
 }
@@ -593,7 +598,17 @@ ol {
 .member-item .mi-social .mi-social-inner a:last-child {
 	margin-right: 0;
 }
-
+.member-item .minon-text {
+	background: #ffffff;
+	padding: 16px 0 18px 25px;
+	position: absolute;
+	left: -500px;
+	bottom: 20px;
+	width: calc(100% - 40px);
+	-webkit-transition: all 0.0s ease-out;
+	-o-transition: all 0.0s ease-out;
+	transition: all 0.0s ease-out;
+}
 .member-item .mi-text {
 	background: #ffffff;
 	padding: 16px 0 18px 25px;

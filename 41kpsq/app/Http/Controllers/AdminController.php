@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\AdminAuth;
 use App\Models\Admin;
+use Illuminate\Support\Facades\DB;
+use App\Models\villages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -53,6 +55,25 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
+        for($i=1;$i<=11;$i++){
+            $result = DB::table('members')
+            ->where(['village'=>$i])
+            ->get();
+            $pop = count($result);
+
+            DB::table('villages')  
+            ->where(['id'=> $i])
+            ->update(
+                [
+                    'pop'=>$pop,
+                    
+                ]
+                
+            ); 
+            
+        }
+       
+           exit();
         return view('admin.dashboard');
     }
    

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Manup Template">
@@ -16,31 +16,31 @@
 
 
     <!-- Css Styles -->
-    <link  href="{{asset('main_asset/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-     
+    <link href="{{ asset('main_asset/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+
     <!-- Css gallery -->
-   
-    
 
-   
 
-    <link rel="stylesheet" href="{{asset('main_asset/gallery_asset/fonts/flaticon/font/flaticon.css')}}">
 
-    <link rel="stylesheet" href="{{asset('main_asset/gallery_asset/css/aos.css')}}">
-    <link rel="stylesheet" href="{{asset('main_asset/gallery_asset/css/jquery.scrollbar.css')}}">
-    <link rel="stylesheet" href="{{asset('main_asset/gallery_asset/css/fancybox.min.css')}}">
-    <link rel="stylesheet" href="{{asset('main_asset/gallery_asset/css/swiper.min.css')}}">
 
-   
+
+    <link rel="stylesheet" href="{{ asset('main_asset/gallery_asset/fonts/flaticon/font/flaticon.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('main_asset/gallery_asset/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('main_asset/gallery_asset/css/jquery.scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('main_asset/gallery_asset/css/fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('main_asset/gallery_asset/css/swiper.min.css') }}">
+
+
 
 
     <!-- Css Styles -->
-    <link rel="stylesheet"  href="{{asset('main_asset/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet"  href="{{asset('main_asset/css/elegant-icons.css')}}" type="text/css">
-    <link rel="stylesheet"  href="{{asset('main_asset/css/owl.carousel.min.css')}}" type="text/css">
-    <link rel="stylesheet"  href="{{asset('main_asset/css/magnific-popup.css')}}" type="text/css">
-    <link rel="stylesheet"  href="{{asset('main_asset/css/slicknav.min.css')}}" type="text/css">
-    <link rel="stylesheet"  href="{{asset('main_asset/css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('main_asset/css/font-awesome.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('main_asset/css/elegant-icons.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('main_asset/css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('main_asset/css/magnific-popup.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('main_asset/css/slicknav.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('main_asset/css/style.css') }}" type="text/css">
 </head>
 
 <body>
@@ -54,7 +54,7 @@
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <img src="{{asset('main_asset/img/logo1.svg')}}" alt="">
+                    <img src="{{ asset('main_asset/img/logo1.svg') }}" alt="">
                 </a>
             </div>
             <div class="nav-menu">
@@ -71,38 +71,39 @@
                             </ul>
                         </li>
                         <li><a href="./schedule.html">Events</a></li>
-                        
+
                         <li><a href="./contact.html">Contacts</a></li>
-                        <li><a href="{{url('/register')}}">Register</a></li>
-                        @if(session()->has('FRONT_USER_NAME')!=null)
-                        <li><a href="{{url('/logoutuser')}}">logout</a></li>
-                        @else 
-                           
-                        <li><a href="{{url('/loginuser')}}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        @if (session()->has('FRONT_USER_NAME') != null)
+                            <li><a href="{{ url('/logoutuser') }}">logout</a></li>
+                        @else
+
+                            <li><a href="{{ url('/loginuser') }}">Login</a></li>
                         @endif
-                        
+
                     </ul>
                 </nav>
-        <!--        <a href="{{url('/register')}}" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Log-in /Sign Up</a>
-        --></div>
+                <!--        <a href="{{ url('/register') }}" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Log-in /Sign Up</a>
+        -->
+            </div>
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero-section set-bg" data-setbg="{{asset('main_asset/img/umiya12.jpg')}}">
+    <section class="hero-section set-bg" data-setbg="{{ asset('main_asset/img/umiya12.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="hero-text">
-                        
-                        <h2>41 KPSQ<br />  Queensland</h2>
+
+                        <h2>41 KPSQ<br /> Queensland</h2>
                         <a href="#" class="primary-btn">Buy Ticket</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
-                   <img src="{{asset('main_asset/img/banner.png')}}" alt="">
+                    <img src="{{ asset('main_asset/img/banner.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -115,7 +116,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="counter-text">
-                       
+
                         <h3>Counting Every People <br /> of 41KPS in Queensland</h3>
                     </div>
                 </div>
@@ -133,13 +134,13 @@
                             <span>46</span>
                             <p>Kids</p>
                         </div>
-             <!--           <div class="cd-item">
+                        <!--           <div class="cd-item">
                             <span>32</span>
                             <p>Seconds</p> -->
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Counter Section End -->
@@ -150,7 +151,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="ha-pic">
-                        <img src="{{asset('main_asset/img/41KPSQ.PNG')}}" alt="">
+                        <img src="{{ asset('main_asset/img/41KPSQ.PNG') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -181,84 +182,57 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Volunteers</h2>
-                        <p>These are our volunteers, Working for Community</p>
+                        <h2>People from Villages</h2>
+                        <p>These are our top 5 villages</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="member-item set-bg" data-setbg="{{asset('main_asset/img/team-member/member-1.jpg')}}">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
+        <?php
+        $pop=[];
+        $result = DB::table('villages')->orderBy('pop', 'DESC')->get();
+     
+        
+        for($i=0; $i<count($result);$i++){
+            $pop[$i+1] = $result[$i]->pop;
+            $id = $result[$i]->id;
+        
+      
+            if($id % 2 == 0){
+                ?>
+         <div class="member-item bg-gradient" id="grad2" style="padding: 30px">
+            <div style="background-color:white; height:30%; width:100%; padding:20%" >
+                <h6>{{ $result[$i]->village }}</h6>
+                
             </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
+            <h6 style="color:white; text-align:center; padding:20px"> Total people</h3>
+            <h1 style="text-align: center; text-size: 90px">{{ $result[$i]->pop }}</h1>
             </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="{{asset('main_asset/img/team-member/member-2.jpg')}}">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
+
+        <?php
+        if($i == 4){
+            break;
+        }
+            }
+            else{
+               ?>
+        <div class="member-item bg-gradient" id="grad2" style="padding: 30px">
+            <div style="background-color:white; height:30%; width:100%; padding:20%" >
+                <h6>{{ $result[$i]->village }}</h6>
+                
             </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
+            <h6 style="color:white; text-align:center; padding:20px"> Total people</h3>
+            <h1 style="text-align: center; text-size: 90px">{{ $result[$i]->pop }}</h1>
             </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="{{asset('main_asset/img/team-member/member-3.jpg')}}">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="{{asset('main_asset/img/team-member/member-4.jpg')}}">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
-        <div class="member-item set-bg" data-setbg="{{asset('main_asset/img/team-member/member-5.jpg')}}">
-            <div class="mi-social">
-                <div class="mi-social-inner bg-gradient">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="mi-text">
-                <h5>Emma Sandoval</h5>
-                <span>Speaker</span>
-            </div>
-        </div>
+        <?php
+        if($i == 4){
+            break;
+        }
+            }
+        }?>
 
     </section>
+
     <!-- Team Member Section End -->
 
     <!-- Schedule Section Begin -->
@@ -284,7 +258,8 @@
                             </li>
                             @foreach ($data as $list)
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tabs{{ $list->id }}" role="tab">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs{{ $list->id }}"
+                                        role="tab">
                                         <h5>{{ $list->name }}</h5>
                                         <p>{{ $list->date }}</p>
                                     </a>
@@ -344,7 +319,7 @@
     <!-- Schedule Section End -->
 
     <!-- Pricing Section Begin -->
-    <section class="pricing-section set-bg spad" data-setbg="{{asset('main_asset/img/pricing-bg.jpg')}}">
+    <section class="pricing-section set-bg spad" data-setbg="{{ asset('main_asset/img/pricing-bg.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -426,7 +401,8 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="latest-item set-bg large-item" data-setbg="{{asset('main_asset/img/blog/latest-b/latest-1.jpg')}}">
+                    <div class="latest-item set-bg large-item"
+                        data-setbg="{{ asset('main_asset/img/blog/latest-b/latest-1.jpg') }}">
                         <div class="li-tag">Marketing</div>
                         <div class="li-text">
                             <h4><a href="./blog-details.html">Improve You Business Cards And Enchan Your Sales</a></h4>
@@ -435,17 +411,21 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="latest-item set-bg" data-setbg="{{asset('main_asset/img/blog/latest-b/latest-2.jpg')}}">
+                    <div class="latest-item set-bg"
+                        data-setbg="{{ asset('main_asset/img/blog/latest-b/latest-2.jpg') }}">
                         <div class="li-tag">Experience</div>
                         <div class="li-text">
-                            <h5><a href="./blog-details.html">All users on MySpace will know that there are millions of people out there.</a></h5>
+                            <h5><a href="./blog-details.html">All users on MySpace will know that there are millions of
+                                    people out there.</a></h5>
                             <span><i class="fa fa-clock-o"></i> 19th May, 2019</span>
                         </div>
                     </div>
-                    <div class="latest-item set-bg" data-setbg="{{asset('main_asset/img/blog/latest-b/latest-3.jpg')}}">
+                    <div class="latest-item set-bg"
+                        data-setbg="{{ asset('main_asset/img/blog/latest-b/latest-3.jpg') }}">
                         <div class="li-tag">Marketing</div>
                         <div class="li-text">
-                            <h5><a href="./blog-details.html">A Pocket PC is a handheld computer, which features many of the same capabilities.</a></h5>
+                            <h5><a href="./blog-details.html">A Pocket PC is a handheld computer, which features many of
+                                    the same capabilities.</a></h5>
                             <span><i class="fa fa-clock-o"></i> 19th May, 2019</span>
                         </div>
                     </div>
@@ -458,7 +438,7 @@
     <!-- Newslatter Section Begin -->
     <section class="newslatter-section">
         <div class="container">
-            <div class="newslatter-inner set-bg" data-setbg="{{asset('main_asset/img/newslatter-bg.jpg')}}">
+            <div class="newslatter-inner set-bg" data-setbg="{{ asset('main_asset/img/newslatter-bg.jpg') }}">
                 <div class="ni-text">
                     <h3>Subscribe Newsletter</h3>
                     <p>Subscribe to our newsletter and don’t miss anything</p>
@@ -520,32 +500,32 @@
             <div class="partner-logo owl-carousel">
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="{{asset('main_asset/img/partner-logo/logo-1.png')}}" alt="">
+                        <img src="{{ asset('main_asset/img/partner-logo/logo-1.png') }}" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="{{asset('main_asset/img/partner-logo/logo-2.png')}}" alt="">
+                        <img src="{{ asset('main_asset/img/partner-logo/logo-2.png') }}" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="{{asset('main_asset/img/partner-logo/logo-3.png')}}" alt="">
+                        <img src="{{ asset('main_asset/img/partner-logo/logo-3.png') }}" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="{{asset('main_asset/img/partner-logo/logo-4.png')}}" alt="">
+                        <img src="{{ asset('main_asset/img/partner-logo/logo-4.png') }}" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="{{asset('main_asset/img/partner-logo/logo-5.png')}}" alt="">
+                        <img src="{{ asset('main_asset/img/partner-logo/logo-5.png') }}" alt="">
                     </div>
                 </a>
                 <a href="#" class="pl-table">
                     <div class="pl-tablecell">
-                        <img src="{{asset('main_asset/img/partner-logo/logo-6.png')}}" alt="">
+                        <img src="{{ asset('main_asset/img/partner-logo/logo-6.png') }}" alt="">
                     </div>
                 </a>
             </div>
@@ -554,9 +534,9 @@
                     <div class="footer-text">
                         <div class="ft-logo">
                             <a href="./index.html" class="footer-logo">
-                                <img style="color: white" src="{{asset('main_asset/img/footerlogo.png')}}" alt="">
+                                <img style="color: white" src="{{ asset('main_asset/img/footerlogo.png') }}" alt="">
                             </a>
-                           
+
                         </div>
                         <ul>
                             <li><a href="#">Home</a></li>
@@ -565,9 +545,18 @@
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">Contact</a></li>
                         </ul>
-                        <div class="copyright-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a></a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="copyright-text">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i
+                                    class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                    target="_blank">Colorlib.Downloaded from <a href="https://themeslab.org/"
+                                        target="_blank">Themeslab</a></a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
                         <div class="ft-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -582,25 +571,25 @@
     </footer>
     <!-- Footer Section End -->
 
-  
-  
-  
 
 
-  <script src="{{asset('main_asset/gallery_asset/js/aos.js')}}"></script>
 
-  <script src="{{asset('main_asset/gallery_asset/js/jquery.fancybox.min.js')}}"></script>
-  <script src="{{asset('main_asset/gallery_asset/js/swiper.min.js')}}"></script>
-  <script src="{{asset('main_asset/gallery_asset/js/jquery.scrollbar.js')}}"></script>
-  <script src="{{asset('main_asset/gallery_asset/js/main.js')}}"></script>
+
+
+    <script src="{{ asset('main_asset/gallery_asset/js/aos.js') }}"></script>
+
+    <script src="{{ asset('main_asset/gallery_asset/js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('main_asset/gallery_asset/js/swiper.min.js') }}"></script>
+    <script src="{{ asset('main_asset/gallery_asset/js/jquery.scrollbar.js') }}"></script>
+    <script src="{{ asset('main_asset/gallery_asset/js/main.js') }}"></script>
     <!-- Js Plugins -->
-    <script src="{{asset('main_asset/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('main_asset/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('main_asset/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset('main_asset/js/jquery.countdown.min.js')}}"></script>
-    <script src="{{asset('main_asset/js/jquery.slicknav.js')}}"></script>
-    <script src="{{asset('main_asset/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('main_asset/js/main.js')}}"></script>
+    <script src="{{ asset('main_asset/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('main_asset/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('main_asset/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('main_asset/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('main_asset/js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('main_asset/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('main_asset/js/main.js') }}"></script>
 </body>
 
 </html>

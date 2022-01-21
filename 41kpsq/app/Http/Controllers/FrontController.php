@@ -46,6 +46,9 @@ class FrontController extends Controller
         $result['data'] = Events::all();
         $sort = $result['data'];
         $result['data'] = $sort->sortByDesc('date');
+        $pop=[];
+     
+    
         return view('welcome', $result,$result2);
        
     }
@@ -138,6 +141,8 @@ class FrontController extends Controller
                 $messages->to($user['to']);
                 $messages->subject('Email Id Verification');
             });
+            
+            
 
             return response()->json(['status'=>'success', 'msg'=>'You are successfully registered! Please check email for verification.',
             
