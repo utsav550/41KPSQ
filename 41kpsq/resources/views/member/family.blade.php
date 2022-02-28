@@ -50,11 +50,12 @@ if(session('alert')){
             </div>
         @else
             <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                <a  class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
                     aria-controls="collapseExample">
                     Add Family Member
                 </a>
-
+           
+           
                 <a class="btn btn-primary" data-toggle="collapse" href="#link" role="button" aria-expanded="false"
                     aria-controls="collapseExample">
                     Link Family Member
@@ -214,6 +215,7 @@ if(session('alert')){
         </div>
     </div>
     <div class="collapse" id="link">
+        <div class="card card-body">
         <form action="{{ url('member/family/link') }}/{{ $idv }}" method="POST">
             @csrf
             <P style="color: green">Use this for existing users only!</P>
@@ -238,6 +240,7 @@ if(session('alert')){
             </div>
             <button type="submit" class="btn btn-primary">Add </button>
         </form>
+    </div>
     </div>
 
     <script src="{{ asset('main_asset/js/custom.js') }}"></script>
