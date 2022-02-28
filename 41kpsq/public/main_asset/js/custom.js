@@ -1,5 +1,6 @@
 jQuery('#frmRegi').submit(function(e){
-
+  jQuery('#thank_you_msg').html("Please wait...");
+  jQuery('#thank_you_msg').html("");
     e.preventDefault();
     jQuery('.field_error').html('');
     jQuery.ajax({

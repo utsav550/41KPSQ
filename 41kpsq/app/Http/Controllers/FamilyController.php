@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Members;
+use App\Models\villages;
 use Illuminate\Support\Facades\DB;
 use App\Models\family;
 use Illuminate\Http\Request;
@@ -77,6 +78,11 @@ class FamilyController extends Controller
 
         $arr = Members::where(['head_id' => $id, 'fname' => $request->post('fname'), 'lname' => $request->post('lname'), 'relation' => $request->post('relation')])->get();
         $arr2 = family::where(['head_id' => $id])->get();
+        $res= villages::where(['id' => $arr['0']->village])->get();
+                
+                $pop =  $res['0']->pop;
+                $model2 = villages::where('id',  $arr['0']->village)
+                    ->update(['pop' => $pop + 1]);
 
 
         $delet = 404;
@@ -126,6 +132,16 @@ class FamilyController extends Controller
         $idv = session()->get('FRONT_USER_ID');
 
        
+        $arr = Members::where(['head_id' => $idv])->get();
+        $res = villages::where(['id' => $arr['0']->village])->get();
+              
+                $pop =  $res['0']->pop;
+                echo $pop;
+               
+                $model2 = villages::where('id', $arr['0']->village)
+                    ->update(['pop' => $pop - 1]);
+
+
         $arr = family::where(['head_id' => $idv])->get();
 
 

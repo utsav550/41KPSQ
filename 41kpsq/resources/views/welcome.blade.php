@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html lang="zxx">
+<script>
+    $(document).ready(function() {
+
+        $('.counter').each(function() {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 7000,
+                easing: 'swing',
+                step: function(now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+
+    });
+</script>
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +34,39 @@
 
     <!-- Css Styles -->
     <link href="{{ asset('main_asset/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        .card {
+            margin-top: 2em;
+            padding: 1.5em 0.5em 0.5em;
+            height: 250px;
+            border-radius: 2em;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            float: left;
+            margin: 10px 10px 10px 10px
+        }
 
+        .card .card-title {
+            font-weight: 700;
+            font-size: 1.5em;
+            height: 90px;
+        }
+
+        .card .btn {
+            border-radius: 2em;
+            background-color: teal;
+            color: #ffffff;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .card .btn:hover {
+            background-color: rgba(0, 128, 128, 0.7);
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
     <!-- Css gallery -->
 
 
@@ -120,19 +169,30 @@
                         <h3>Counting Every People <br /> of 41KPS in Queensland</h3>
                     </div>
                 </div>
+                <?php
+                
+                $familycount = DB::table('families')->get();
+                
+                $member = DB::table('members')->get();
+                
+                $indi = DB::table('members')
+                    ->where('family_head_id', null)
+                    ->get();
+                
+                ?>
                 <div class="col-lg-8">
                     <div class="cd-timer" id="countdwn">
                         <div class="cd-item">
-                            <span>40</span>
+                            <span>{{ count($familycount) }}</span>
                             <p>Families</p>
                         </div>
                         <div class="cd-item">
-                            <span>180</span>
-                            <p>People</p>
+                            <span>{{ count($member) }}</span>
+                            <p>Members</p>
                         </div>
                         <div class="cd-item">
-                            <span>46</span>
-                            <p>Kids</p>
+                            <span>{{ count($indi) }}</span>
+                            <p>individuals</p>
                         </div>
                         <!--           <div class="cd-item">
                             <span>32</span>
@@ -157,6 +217,7 @@
                 <div class="col-lg-6">
                     <div class="ha-text">
                         <h2>About Community</h2>
+
                         <p>When I first got into the online advertising business, I was looking for the magical
                             combination that would put my website into the top search engine rankings, catapult me to
                             the forefront of the minds or individuals looking to buy my product, and generally make me
@@ -183,54 +244,35 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>People from Villages</h2>
-                        <p>These are our top 5 villages</p>
+                        <p>These are our top 8 villages</p>
                     </div>
                 </div>
             </div>
         </div>
-        <?php
+        <div class="container">
+            <div class="row" >
+                <div class="col">
+                    <?php
         $pop=[];
         $result = DB::table('villages')->orderBy('pop', 'DESC')->get();
-     
-        
-        for($i=0; $i<count($result);$i++){
+         for($i=0; $i<count($result);$i++){
             $pop[$i+1] = $result[$i]->pop;
             $id = $result[$i]->id;
-        
-      
-            if($id % 2 == 0){
-                ?>
-         <div class="member-item bg-gradient" id="grad2" style="padding: 30px">
-            <div style="background-color:white; height:30%; width:100%; padding:20%" >
-                <h6>{{ $result[$i]->village }}</h6>
-                
-            </div>
-            <h6 style="color:white; text-align:center; padding:20px"> Total people</h3>
-            <h1 style="text-align: center; text-size: 90px">{{ $result[$i]->pop }}</h1>
-            </div>
-
+        ?>
+                    <div class="card" style="width: 15rem;">
+                        {{ $result[$i]->pop }}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $result[$i]->village }}</h5>
+                            <a href="#" class="btn">Know More</a>
+                        </div>
+                    </div>
         <?php
-        if($i == 4){
+        if ($i == 7) {
             break;
-        }
-            }
-            else{
-               ?>
-        <div class="member-item bg-gradient" id="grad2" style="padding: 30px">
-            <div style="background-color:white; height:30%; width:100%; padding:20%" >
-                <h6>{{ $result[$i]->village }}</h6>
-                
-            </div>
-            <h6 style="color:white; text-align:center; padding:20px"> Total people</h3>
-            <h1 style="text-align: center; text-size: 90px">{{ $result[$i]->pop }}</h1>
-            </div>
-        <?php
-        if($i == 4){
-            break;
-        }
-            }
+        }            
         }?>
-
+                </div>
+            </div>
     </section>
 
     <!-- Team Member Section End -->

@@ -121,6 +121,7 @@
                                 </div>
                                 <button type="submit" id="btnRegi" class="btn btn-primary btn-user btn-block">
                                     Register Account</button>
+                                    <div id="thank_you_msg"></div>
                                     <div class="text-center" style="color: green; margin-top:10px" id="thanks">
                                     </div>
                                 </a>
