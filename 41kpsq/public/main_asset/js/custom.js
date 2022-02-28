@@ -1,6 +1,6 @@
 jQuery('#frmRegi').submit(function(e){
-  jQuery('#thank_you_msg').html("Please wait...");
-  jQuery('#thank_you_msg').html("");
+  jQuery('#forgot_msg').html("Please wait...");
+  
     e.preventDefault();
     jQuery('.field_error').html('');
     jQuery.ajax({
@@ -16,6 +16,7 @@ jQuery('#frmRegi').submit(function(e){
             }
             if(result.status=="success"){
                 jQuery('#frmRegi')[0].reset();
+                jQuery('#forgot_msg').html("");
                 jQuery('#thanks').html(result.msg);
               }
         }
