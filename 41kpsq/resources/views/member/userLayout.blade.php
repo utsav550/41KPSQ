@@ -69,8 +69,13 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{url('member/family')}}/{{session()->get('FRONT_USER_ID')}}">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-home"></i>
                     <span>Family</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('member/population')}}">
+                    <i class="fas fa-users"></i>
+                    <span>Population</span></a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->

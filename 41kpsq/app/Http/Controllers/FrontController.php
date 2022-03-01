@@ -260,23 +260,6 @@ class FrontController extends Controller
 
             );
         return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
-        return view('/loginuser');
+        
     }
 }

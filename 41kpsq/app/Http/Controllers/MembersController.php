@@ -75,6 +75,16 @@ class MembersController extends Controller
         } 
         
     }
+    public function population(Request $request)
+    {
+
+        return view('member/population');
+    }
+public function vmemb(Request $id)
+    {
+        
+        return view('member/villagemembers');
+    }
 
 
 }

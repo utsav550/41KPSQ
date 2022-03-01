@@ -126,7 +126,6 @@
                         @if (session()->has('FRONT_USER_NAME') != null)
                             <li><a href="{{ url('/logoutuser') }}">logout</a></li>
                         @else
-
                             <li><a href="{{ url('/loginuser') }}">Login</a></li>
                         @endif
 
@@ -250,15 +249,15 @@
             </div>
         </div>
         <div class="container">
-            <div class="row" >
+            <div class="row">
                 <div class="col">
-                    <?php
-        $pop=[];
-        $result = DB::table('villages')->orderBy('pop', 'DESC')->get();
-         for($i=0; $i<count($result);$i++){
-            $pop[$i+1] = $result[$i]->pop;
-            $id = $result[$i]->id;
-        ?>
+                        <?php
+            $pop=[];
+            $result = DB::table('villages')->orderBy('pop', 'DESC')->get();
+            for($i=0; $i<count($result);$i++){
+                $pop[$i+1] = $result[$i]->pop;
+                $id = $result[$i]->id;
+            ?>
                     <div class="card" style="width: 15rem;">
                         {{ $result[$i]->pop }}
                         <div class="card-body">
@@ -266,13 +265,14 @@
                             <a href="#" class="btn">Know More</a>
                         </div>
                     </div>
-        <?php
+                    <?php
         if ($i == 7) {
             break;
         }            
         }?>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Team Member Section End -->
